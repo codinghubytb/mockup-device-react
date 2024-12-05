@@ -1,11 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import CardDevice from "../components/CardDevice"
-import deviceData from './data/device.json';
-import Navbar from '../components/Navbar';
+import CardDevice from "../library/CardDevice"
 
 function Home() {
-  const [devices] = useState(deviceData);
   const [data, setData] = useState([])
 
   const navigate = useNavigate();

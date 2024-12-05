@@ -13,10 +13,10 @@ const InputColorComponent = ({id = `range-${Math.random().toString(36).substr(2,
     };
 
   return (
-    <div className="w-full max-w-sm min-w-[200px]">
+    <div className="w-full">
         <label htmlFor={id} className="block mb-1 text-sm text-slate-600">{title}</label>
         <input id={id} type="color" 
-        className="p-1 h-10 w-14 block bg-white border
+        className="p-1 h-20 w-full  block bg-white border
          border-gray-200 cursor-pointer rounded-lg
           disabled:opacity-50 disabled:pointer-events-none
            dark:bg-neutral-900 dark:border-neutral-700"

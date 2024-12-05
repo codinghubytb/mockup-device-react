@@ -1,0 +1,13 @@
+[
+  { "font": "Arial", "factor": 0.5 },
+  { "font": "Courier New", "factor": 0.6 },
+  { "font": "Times New Roman", "factor": 0.5 },
+  { "font": "Verdana", "factor": 0.55 },
+  { "font": "Tahoma", "factor": 0.53 },
+  { "font": "Georgia", "factor": 0.54 },
+  { "font": "Roboto", "factor": 0.52 },
+  { "font": "Open Sans", "factor": 0.52 },
+  { "font": "Helvetica", "factor": 0.5 },
+  { "font": "Consolas", "factor": 0.55 },
+  { "font": "Monospace (general)", "factor": 0.6 }
+]

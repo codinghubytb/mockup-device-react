@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import deviceData from './data/device.json';
 import Home from './Home';
 import EditMockup from './EditMockup';
 

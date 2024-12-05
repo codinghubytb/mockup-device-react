@@ -49,7 +49,9 @@ const base64ToBlob = (base64, extension) => {
 };
 
 // Exemple d'appel de la fonction
-const sendImageForMockup = async (deviceBase64, base64Image, extension, width, height, bordertop, borderleft, marginTop, marginLeft, marginBottom, marginRight, cornerRadius, gradientType = "solid", gradientColors = "transparent", gradientDirection = "to top right", radius = 50) => {
+export const sendImageForMockup = async (deviceBase64, base64Image, extension, width, height, bordertop, borderleft, marginTop, marginLeft, marginBottom, marginRight, cornerRadius, gradientType = "solid", gradientColors = "transparent", gradientDirection = "to top right", radius = 50, text, textColor, backColor, fontSize, textAnchor,
+  font, fontWeight, topText, leftText) => {
+  console.log(font)
   return await sendImageForOperation('http://localhost:3001/mockup/generate', deviceBase64, base64Image, 'png', {
     width: width.toString(),
     height: height.toString(),
@@ -64,7 +66,21 @@ const sendImageForMockup = async (deviceBase64, base64Image, extension, width, h
     gradientDirection: gradientDirection,
     radius: `${radius}%`,
     cornerRadius: cornerRadius.toString(),
+    text: text.toString(),
+    textColor: textColor.toString(),
+    backColor: backColor.toString(),
+    fontSizeText: fontSize.toString(),
+    textAnchor: textAnchor.toString(),
+    fontFamily: font.toString(),
+    fontWeight: fontWeight.toString(),
+    topText: topText.toString(),
+    leftText: leftText.toString()
   });
 };
 
-export default sendImageForMockup;
+
+export const cleanBase64 = (base64) => {
+  const base64Pattern = /^data:image\/[a-zA-Z]*;base64,/;
+  return base64.replace(base64Pattern, "");
+};
+

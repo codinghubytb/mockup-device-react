@@ -1,0 +1,66 @@
+[
+    {
+        "margins" : {
+            "top": 100,
+            "bottom": -100,
+            "left": 100,
+            "right": 100
+        },
+        "backgroundStyle" : {
+            "type": "Linear",
+            "direction": "to right",
+            "color1": "#ffffff",
+            "color2": "#b8c3ff",
+            "radius": 75
+        },
+        "textStyle" : {
+            "text": "Télécharger Mockup Generator", 
+            "fontFamily": { "font": "Courier New", "factor": 0.6},
+            "fontWeight": "",
+            "color": "#000000", 
+            "backColor": "#000000",
+            "isTransparent": true,
+            "anchor": "center",
+            "fontSize": 36,
+            "top": 40,
+            "left": 100,
+            "height": 98,
+            "lines": ["Télécharger", "Mockup Generator"]
+        }
+
+
+    },
+    {
+        "margins" : {
+            "top": -145,
+            "bottom": 100,
+            "left": 100,
+            "right": 100
+        },
+        "backgroundStyle" : {
+            "type": "Radial",
+            "direction": "to right",
+            "color1": "#ffffff",
+            "color2": "#b8c3ff",
+            "radius": 90
+        },
+        "textStyle" : {
+            "text": "Télécharger Mockup Generator", 
+            "fontFamily": {"font":"Verdana",
+             "factor": 0.55 },
+            "fontWeight": "",
+            "color": "#000000", 
+            "backColor": "#000000",
+            "isTransparent": true,
+            "anchor": "center",
+            "fontSize": 39,
+            "top": 652,
+            "left": 100,
+            "height": 112,
+            "lines": ["Télécharger","Mockup Generator"]
+        }
+  
+  
+    }
+]
+  
