@@ -3,7 +3,7 @@ import axios from "axios";
 import { checkToken, login } from "../utils/api"; 
 
 const useTokenValidation = () => {
-  const [isValid, setIsValid] = useState(false);  // État de validation
+  const [isValid, setIsValid] = useState(true);  // État de validation
   const [isChecking, setIsChecking] = useState(true);  // État de vérification
   const [error, setError] = useState(null);  // État pour l'erreur éventuelle
 
@@ -13,6 +13,7 @@ const useTokenValidation = () => {
       if (!valid) {
         const loginSuccess = await login(import.meta.env.VITE_SITE); // Login si nécessaire
         if (!loginSuccess) {
+          setIsValid(false);
           setIsChecking(false); // Échec de validation
           setError("Échec de la connexion, veuillez réessayer.");
           return;

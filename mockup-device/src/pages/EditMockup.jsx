@@ -87,6 +87,8 @@ function EditMockup() {
 
   const download = async () => {
 
+    if((!isValid)) return;
+    
     const result = await sendImageForMockup(
       device.Path,
       cleanBase64(imageSrc),
@@ -195,18 +197,14 @@ function EditMockup() {
     return () => window.removeEventListener("resize", updateNbDivisor);
   }, []);
 
-  
-  if (isChecking) {
-    return <p>Vérification en cours...</p>;
-  }
-
-  if (!isValid) {
-      return <p>Accès non autorisé.</p>;
-  }
-
    return (
     <div className="bg-gray-100">
     
+      {!isValid && 
+        <div role="alert" class=" absolute bottom-2 left-2 mb-4 z-50 flex  p-3 text-sm text-white bg-orange-600 rounded-md">
+          {t("text_error")}
+        </div>
+      }
 
       <NavbarComponent onDownload={download} />
       
@@ -220,6 +218,9 @@ function EditMockup() {
             tabs={tabs} 
             onActiveTab={value => setActiveTab(value)}/>
           
+          {isValid &&
+           <>
+
           {activeTab === "margin" && 
             <MarginSettingsComponent 
               margins={margins}
@@ -264,6 +265,9 @@ function EditMockup() {
                   setDevice={setDevice}
                   /> 
           }  
+          
+          </>}
+          
           
         </div>
 

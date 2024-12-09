@@ -34,7 +34,8 @@ const resources = {
       radius:"Radius",
       bmc: "Do you like my content ?",
       text_dragDrop:"Drag and Drop your file here or",
-      text_chooseFile: "Choose File"
+      text_chooseFile: "Choose File",
+      text_error: "An error occurred while retrieving the information. Please try again later."
     },
   },
   fr: {
@@ -67,7 +68,8 @@ const resources = {
       radius:"Rayon",
       bmc: "Tu aimes mon contenu ?",
       text_dragDrop:"Faites glisser et déposez votre fichier ici ou",
-      text_chooseFile: "Choisir un fichier"
+      text_chooseFile: "Choisir un fichier",
+      text_error: "Une erreur est survenue lors de la récupération des informations. Veuillez réessayer plus tard."
     },
   },
 };
