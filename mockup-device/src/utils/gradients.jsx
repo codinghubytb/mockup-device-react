@@ -84,7 +84,7 @@ export const createTextSvg = (width, height, textStyle, nbDivisor) => {
   }
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} className="absolute z-40"
+    <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height / nbDivisor} className="absolute z-40"
       style={{ top: `${textStyle.top / nbDivisor}px`, left: `${textStyle.left / nbDivisor}px` }}  >
       <rect width="100%" height="100%" fill={`${textStyle.isTransparent ? "transparent" : textStyle.backColor}`} />
       {textStyle.lines.map((line, index) => (

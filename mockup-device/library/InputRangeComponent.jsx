@@ -21,7 +21,7 @@ const InputRangeComponent = ({id = `range-${Math.random().toString(36).substr(2,
 
   return (
 
-    <div className="w-full max-w-sm min-w-[200px]">  
+    <div className="w-full min-w-[200px]">  
         <label 
             htmlFor={id} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             {label} ({value})

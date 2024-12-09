@@ -22,7 +22,8 @@ const sendImageForOperation = async (path, deviceBase64, base64Image, extension,
     const response = await axios.post(path, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
-      },
+        'x-api-key': import.meta.env.VITE_API_KEY
+      }
     });
 
     if (response.status === 200) {
@@ -51,8 +52,7 @@ const base64ToBlob = (base64, extension) => {
 // Exemple d'appel de la fonction
 export const sendImageForMockup = async (deviceBase64, base64Image, extension, width, height, bordertop, borderleft, marginTop, marginLeft, marginBottom, marginRight, cornerRadius, gradientType = "solid", gradientColors = "transparent", gradientDirection = "to top right", radius = 50, text, textColor, backColor, fontSize, textAnchor,
   font, fontWeight, topText, leftText) => {
-  console.log(font)
-  return await sendImageForOperation('http://localhost:3001/mockup/generate', deviceBase64, base64Image, 'png', {
+  return await sendImageForOperation(`${import.meta.env.VITE_APIMODULE}/mockup/generate`, deviceBase64, base64Image, 'png', {
     width: width.toString(),
     height: height.toString(),
     bordertop: bordertop.toString(),

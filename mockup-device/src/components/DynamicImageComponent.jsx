@@ -11,9 +11,9 @@ const DynamicImageComponent = ({
   onClick
 }) => {
   return (
-    <div
+    <div 
       onClick={onClick}
-      className="overflow-hidden border-black border"
+      className="overflow-hidden border-black border border-opacity-10  min-h-full"
       style={{
         position: "relative",
         display: "inline-block",
@@ -44,7 +44,7 @@ const DynamicImageComponent = ({
 
       {/* Overlay container */}
       <div
-        className="relative bg-transparent z-20"
+        className="relative bg-transparent z-20 h-full min-h-full"
         style={{
           height: `${device.Height / nbDivisor}px`, // Base height without margins
           width: `${device.Width / nbDivisor}px`, // Base width without margins
@@ -70,8 +70,7 @@ const DynamicImageComponent = ({
           }px`,
         }}
       >
-        {/* Base image */}
-        <img
+        {device && device.Path && <img
           src={`data:image/png;base64,${device.Path}`}
           alt="Uploaded"
           style={{
@@ -82,10 +81,9 @@ const DynamicImageComponent = ({
             top: "0",
             left: "0",
           }}
-        />
-
-        {/* Overlayed image */}
-        <img
+        />}
+       
+        {imageSrc && <img
           src={imageSrc}
           alt="Overlay"
           style={{
@@ -96,7 +94,7 @@ const DynamicImageComponent = ({
             height: `calc(100% - ${device.BorderTop / (nbDivisor /2)}px)`, // Takes into account top and bottom spacing
             borderRadius: `${device.CornerRadius}px`,
           }}
-        />
+        /> }
       </div>
     </div>
   );

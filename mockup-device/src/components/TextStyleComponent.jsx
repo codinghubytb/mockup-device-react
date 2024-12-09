@@ -4,17 +4,23 @@ import InputNumberComponent from "../../library/InputNumberComponent.jsx";
 import InputSelectComponent from "../../library/InputSelectComponent.jsx";
 import InputCheckboxComponent from "../../library/InputCheckboxComponent.jsx";
 import fonts from "../data/fonts.json"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import InputRangeComponent from "../../library/InputRangeComponent.jsx";
+import { useTranslation } from "react-i18next";
 
 const TextStyleComponent = ({
     width,
+    nbDivisor,
     anchors,
     textStyle,
+    maxTop,
+    maxLeft,
     updateTextStyle
   }) => {
 
-    const [isBold, setIsBold] = useState(false);
+    const { t } = useTranslation();
+
+    const [isBold, setIsBold] = useState(textStyle.fontWeight === "bold");
 
     const changeStateBold = (value) => {
         setIsBold(value);
@@ -37,7 +43,6 @@ const TextStyleComponent = ({
     
     const changeText = (value) => {
 
-        console.log("je suis dedans")
         const words = value.split(' ');
         let line = '';
         let lines = [];
@@ -56,19 +61,22 @@ const TextStyleComponent = ({
         }
         lines.push(line);
     
-        updateTextStyle("height", lines.length * textStyle.fontSize * 1.4);
+        updateTextStyle("height", (lines.length * textStyle.fontSize * 1.4));
         updateTextStyle("text", value);
         updateTextStyle("lines", lines);
+
     }
 
+    useEffect(() => {
+        changeText(textStyle.text);
+      }, []);
+
     return (
-        <div className="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 rounded-lg w-[250px] min-w-[250px]">
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
-                Text
-            </h3>
+        <div className="p-6 text-medium text-gray-800 bg-transparent w-full">
+            <h1 className="text-3xl text-center" >{t("text_text")}</h1>
             <div className="flex flex-col gap-4">
                 <InputTextComponent
-                    label="Text"
+                    label={t("text_text")}
                     value={textStyle.text}
                     onValueChanged={changeText}
                 />
@@ -78,12 +86,12 @@ const TextStyleComponent = ({
                     <InputColorComponent
                         value={textStyle.color}
                         onValueChanged={value => updateTextStyle("color", value)}
-                        title="Color"
+                        title={t("text_color")}
                     />
                     <InputColorComponent
                         value={textStyle.backColor}
                         onValueChanged={value => updateTextStyle("backColor", value)}
-                        title="Back Color"
+                        title={t("text_backColor")}
                     />
 
                 </div>
@@ -93,56 +101,63 @@ const TextStyleComponent = ({
                     <InputCheckboxComponent
                         value={textStyle.isTransparent} 
                         onValueChanged={value => updateTextStyle("isTransparent", value)} 
-                        label="Is Transparent" />
+                        label={t("text_transparent")} />
 
                     <InputCheckboxComponent 
-                        label="Bold"
+                        label={t("text_bold")}
                         value={isBold}
                         onValueChanged={changeStateBold}
                     />
                 </div>
                 
                 <InputRangeComponent
-                    label="Font Size"
+                    label={t("text_fontSize")}
                     value={textStyle.fontSize}
                     max={50}
                     min={12}
                     onValueChanged={changeFontSize}
                 />
 
-                <InputRangeComponent
-                    label="Top"
-                    value={textStyle.top}
-                    max={750}
-                    min={0}
-                    onValueChanged={value => updateTextStyle("top", value)}
-                />
+                <div className="flex flex-row gap-3 max-lg:flex-col">
 
-                <InputRangeComponent
-                    label="Left"
-                    value={textStyle.left}
-                    max={200}
-                    min={0}
-                    onValueChanged={value => updateTextStyle("left", value)}
-                />
+                    <InputRangeComponent
+                        label={t("text_top")}
+                        value={textStyle.top }
+                        max={maxTop}
+                        min={0}
+                        onValueChanged={value => updateTextStyle("top", value)}
+                    />
 
+                    
+                    <InputRangeComponent
+                        label={t("text_left")}
+                        value={textStyle.left}
+                        max={maxLeft}
+                        min={0}
+                        onValueChanged={value => updateTextStyle("left", value)}
+                    />
+          
+                </div>
+
+          
                 
 
                 <InputSelectComponent
                     value={textStyle.anchor}
                     values={anchors}
                     onValueChanged={value => updateTextStyle("anchor", value)}
-                    label="Text Anchor"
+                    label={t("text_anchor")}
                 />
 
                 <InputSelectComponent
                     value={textStyle.fontFamily.font}
                     values={fonts.map(fontData => fontData.font)}
                     onValueChanged={changeFont}
-                    label="Font Family"
+                    label={t("text_fontFamily")}
                 />
                 
             </div>
+          
         </div>
     );
   };

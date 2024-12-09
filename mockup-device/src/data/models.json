@@ -1,4 +1,34 @@
-[
+[{
+    "margins" : {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+    },
+    "backgroundStyle" : {
+        "type": "Transparent",
+        "direction": "to right",
+        "color1": "#ffffff",
+        "color2": "#2563eb",
+        "radius": 75
+    },
+    "textStyle" : {
+        "text": "", 
+        "fontFamily": { "font": "Courier New", "factor": 0.6},
+        "fontWeight": "",
+        "color": "#000000", 
+        "backColor": "#000000",
+        "isTransparent": true,
+        "anchor": "center",
+        "fontSize": 36,
+        "top": 40,
+        "left": 100,
+        "height": 98,
+        "lines": ["Télécharger", "Mockup Generator"]
+    }
+
+
+},
     {
         "margins" : {
             "top": 100,
@@ -10,7 +40,7 @@
             "type": "Linear",
             "direction": "to right",
             "color1": "#ffffff",
-            "color2": "#b8c3ff",
+            "color2": "#2563eb",
             "radius": 75
         },
         "textStyle" : {
@@ -41,7 +71,7 @@
             "type": "Radial",
             "direction": "to right",
             "color1": "#ffffff",
-            "color2": "#b8c3ff",
+            "color2": "#2563eb",
             "radius": 90
         },
         "textStyle" : {
@@ -58,6 +88,70 @@
             "left": 100,
             "height": 112,
             "lines": ["Télécharger","Mockup Generator"]
+        }
+  
+  
+    },
+    {
+        "margins" : {
+            "top": 0,
+            "bottom": 0,
+            "left": -74,
+            "right": 352
+        },
+        "backgroundStyle" : {
+            "type": "Linear",
+            "direction": "to right",
+            "color1": "#ffffff",
+            "color2": "#2563eb",
+            "radius": 75
+        },
+        "textStyle" : {
+            "text": "Télécharger Mockup Device", 
+            "fontFamily": {"font":"Tahoma",
+             "factor": 0.53 },
+            "fontWeight": "",
+            "color": "#000000", 
+            "backColor": "#000000",
+            "isTransparent": true,
+            "anchor": "center",
+            "fontSize": 50,
+            "top": 301,
+            "left": 317,
+            "height": 140,
+            "lines": ["Télécharger","Mockup Device"]
+        }
+  
+  
+    },
+    {
+        "margins" : {
+            "top": 100,
+            "bottom": 100,
+            "left": 352,
+            "right": -74
+        },
+        "backgroundStyle" : {
+            "type": "Radial",
+            "direction": "to right",
+            "color1": "#ffffff",
+            "color2": "#2563eb",
+            "radius": 100
+        },
+        "textStyle" : {
+            "text": "Télécharger Mockup Device", 
+            "fontFamily": {"font":"Arial",
+             "factor": 0.5 },
+            "fontWeight": "bold",
+            "color": "#000000", 
+            "backColor": "#000000",
+            "isTransparent": true,
+            "anchor": "center",
+            "fontSize": 46,
+            "top": 379,
+            "left": 25,
+            "height": 125.99999999999999,
+            "lines": ["Télécharger","Mockup Device"]
         }
   
   

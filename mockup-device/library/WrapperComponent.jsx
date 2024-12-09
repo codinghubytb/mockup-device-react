@@ -12,7 +12,7 @@ const WrapperComponent = ({
 
   return (
     <div
-      className="min-h-full  w-full max-w-full shadow-lg rounded-md overflow-y-auto"
+      className="h-full w-full max-w-full shadow-lg rounded-md overflow-y-auto flex justify-center items-center"
       style={{
         backgroundColor: backgroundColor,
         padding: `${paddingInPx}px`,

@@ -12,7 +12,7 @@ const InputSelectComponent = ({
     };
   
     return (
-      <div className="w-full max-w-sm min-w-[200px]">
+      <div className="w-full min-w-[200px]">
         <label htmlFor={id} className="block mb-1 text-sm text-slate-800">
           {label}
           <div className="relative">
@@ -20,7 +20,7 @@ const InputSelectComponent = ({
               id={id}
               value={value} // Pass the value prop here
               onChange={handleInputChange}
-              className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer"
+              className="w-full bg-white placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer"
             >
               {values.map((name, index) => (
                 <option key={index} value={name}>

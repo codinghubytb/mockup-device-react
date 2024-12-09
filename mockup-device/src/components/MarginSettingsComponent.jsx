@@ -1,49 +1,67 @@
-import InputNumberComponent from "../../library/InputNumberComponent";
 import InputRangeComponent from "../../library/InputRangeComponent";
+import { useTranslation } from "react-i18next";
 
 const MarginSettingsComponent = ({
     margins,
+    updateTextStyle,
     updateMargins,
     nbDivisor
   }) => {
+    
+    const { t } = useTranslation();
+    
     return (
-      <div className="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 rounded-lg w-[250px] min-w-[250px]">
+      <div className="p-6 text-medium text-gray-800 w-full h-full">
         <div className="flex flex-col gap-5">
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
-            Margins
-          </h3>
+          <h1 className="text-3xl text-center" >{t("text_margin")}</h1>
           <div className="flex flex-col gap-2">
 
             <InputRangeComponent
-              label="Margin Top"
+              label={t("text_marginTop")}
               min={Math.floor(-350/nbDivisor)}
               max={Math.floor(400/nbDivisor)}
               value={margins.top}
-              onValueChanged={(value) => updateMargins("top", value)}
+              onValueChanged={(value) => {
+                updateMargins("top", value);
+                updateTextStyle("top", 0);
+                updateTextStyle("left", 0);
+              }}
             />
             <InputRangeComponent
-              label="Margin Bottom"
+              label={t("text_marginBottom")}
               min={Math.floor(-350/nbDivisor)}
               max={Math.floor(400/nbDivisor)}
               value={margins.bottom}
-              onValueChanged={(value) => updateMargins("bottom", value)}
+              onValueChanged={(value) => {
+                updateMargins("bottom", value);
+                updateTextStyle("top", 0);
+                updateTextStyle("left", 0);
+              }}
             />
           </div>
   
           <div className="flex gap-2 flex-col">
             <InputRangeComponent
-              label="Margin Left"
+              label={t("text_marginLeft")}
               min={Math.floor(-125/nbDivisor)}
-              max={Math.floor(400/nbDivisor)}
+              max={Math.floor(600/nbDivisor)}
               value={margins.left}
-              onValueChanged={(value) => updateMargins("left", value)}
+              onValueChanged={(value) => {
+                updateMargins("left", value);
+                updateTextStyle("top", 0);
+                updateTextStyle("left", 0);
+              }}
             />
             <InputRangeComponent
-              label="Margin Right"
+              label={t("text_marginRight")}
               min={Math.floor(-125/nbDivisor)}
-              max={Math.floor(400/nbDivisor)}
+              max={Math.floor(600/nbDivisor)}
               value={margins.right}
-              onValueChanged={(value) => updateMargins("right", value)}
+              onValueChanged={(value) => {
+                updateMargins("right", value);
+                updateTextStyle("top", 0);
+                updateTextStyle("left", 0);
+              }}
             />
           </div>
         </div>

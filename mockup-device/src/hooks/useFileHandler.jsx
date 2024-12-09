@@ -39,5 +39,5 @@ export const useFileHandler = (maxFileSize) => {
         reader.readAsDataURL(selectedFile);
     };
 
-    return { file, imageSrc, error, handleFileChange };
+    return { file, setFile, imageSrc, setImageSrc, error, setError, handleFileChange };
 };
