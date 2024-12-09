@@ -12,7 +12,6 @@ export const fetchDevices = async () => {
     const response = await api.get("/api/collection?database=mockupgenerator&collection=device");
     return response.data;  // Retourne les données des appareils
   } catch (error) {
-    console.error("Erreur lors de la récupération des appareils :", error.response?.data || error.message);
     throw error;  // Lancer l'erreur pour qu'elle soit gérée au niveau de l'appelant
   }
 };
@@ -23,7 +22,6 @@ export const checkToken = async () => {
     const response = await api.get("/protected");
     return response.data.valid;  // Retourne la validité du token
   } catch (error) {
-    console.error("Erreur lors de la vérification du token :", error.response?.data || error.message);
     return false;
   }
 };
@@ -34,7 +32,6 @@ export const login = async (site) => {
     const response = await api.post("/login", { site });
     return response.data.login;  // Retourne le statut de la connexion
   } catch (error) {
-    console.error("Erreur de connexion :", error.response?.data || error.message);
     return false;
   }
 };

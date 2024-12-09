@@ -32,7 +32,6 @@ const sendImageForOperation = async (path, deviceBase64, base64Image, extension,
       return { error: 'Erreur : Transformation de l\'image échouée' };
     }
   } catch (error) {
-    console.error(error);
     return { error: 'Erreur : Transformation de l\'image échouée' };
   }
 };

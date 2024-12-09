@@ -116,7 +116,6 @@ function EditMockup() {
     );
 
     if (!result || !result.image) {
-      console.error('Error');
       return; // Arrêter l'exécution de la fonction
     }
 
@@ -129,7 +128,6 @@ function EditMockup() {
   
       link.remove();
     } else {
-      console.error('Échec du téléchargement de l\'image.');
     }
   }  
 
@@ -179,7 +177,6 @@ function EditMockup() {
 
 
   useEffect(() => {
-    console.log("mis a jour");
     const updateNbDivisor = () => {
       if (window.innerWidth <= 640) { // Taille `sm` en Tailwind
         setNbDivisor(3);

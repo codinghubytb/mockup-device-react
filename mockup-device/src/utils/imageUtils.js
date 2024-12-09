@@ -9,7 +9,6 @@ export const getBase64FromImage = async (imagePath) => {
         reader.readAsDataURL(blob); // Lit le blob en tant que DataURL
       });
     } catch (error) {
-      console.error("Erreur lors de la récupération de l'image :", error);
       throw error;
     }
   };

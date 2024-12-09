@@ -32,7 +32,6 @@ export const useFileHandler = (maxFileSize) => {
         };
 
         reader.onerror = () => {
-            console.error("FileReader error:", reader.error);
             setError("An error occurred while reading the file.");
         };
 
