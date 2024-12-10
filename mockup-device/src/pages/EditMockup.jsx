@@ -155,7 +155,7 @@ function EditMockup() {
   }
 
   useEffect(() => {
-      if (isValid) {
+      if (isValid && !isChecking) {
         
         const fetchDeviceData = async () => {
           try {
@@ -175,7 +175,7 @@ function EditMockup() {
           });
         
       }
-  }, [isValid]); 
+  }, [isValid, isChecking]); 
 
 
   useEffect(() => {
