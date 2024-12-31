@@ -2,8 +2,7 @@ import axios from 'axios';
 
 // Base URL pour les API
 const api = axios.create({
-  baseURL: `${import.meta.env.VITE_APIDATA}`, // Remplacez par votre URL de base si nécessaire
-  withCredentials: true,  // Cela permet d'envoyer les cookies avec la requête
+  baseURL: `${import.meta.env.VITE_APIDATA}`
 });
 
 // Fonction pour récupérer les appareils

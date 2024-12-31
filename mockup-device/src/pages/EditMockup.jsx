@@ -13,13 +13,12 @@ import { useTranslation } from "react-i18next";
 import NavbarComponent from "../components/NavbarComponent.jsx";
 import { fetchDevices } from "../utils/api"; 
 import { getBase64FromImage } from "../utils/imageUtils"; 
-import useTokenValidation from "../hooks/useTokenValidation.jsx";
 
 function EditMockup() {
   
+  const [isValid, setIsValid] = useState(true);
   //hooks
 	const { t } = useTranslation();
-  const { isValid, isChecking } = useTokenValidation();
   const { file, setFile, imageSrc, setImageSrc, error, setError, handleFileChange } = useFileHandler(100 * 1024 * 1024);
 
   //const
@@ -87,8 +86,6 @@ function EditMockup() {
 
   const download = async () => {
 
-    if((!isValid)) return;
-    
     const result = await sendImageForMockup(
       device.Path,
       cleanBase64(imageSrc),
@@ -155,15 +152,15 @@ function EditMockup() {
   }
 
   useEffect(() => {
-      if (isValid && !isChecking) {
-        
         const fetchDeviceData = async () => {
           try {
             const data = await fetchDevices();  // Récupération des appareils via l'API
             setDevices(data);  // Mise à jour des appareils
             setDevice(data[0]);  // Mise à jour du premier appareil
+            
           } catch (error) {
             setError("Erreur lors de la récupération des appareils.");
+            setIsValid(false);
           }
         };
     
@@ -174,8 +171,7 @@ function EditMockup() {
             setImageSrc(base64); // Mettre à jour l'état de l'image en base64
           });
         
-      }
-  }, [isValid, isChecking]); 
+  }, []); 
 
 
   useEffect(() => {
@@ -201,7 +197,7 @@ function EditMockup() {
     <div className="bg-gray-100">
     
       {!isValid && 
-        <div role="alert" class=" absolute bottom-2 left-2 mb-4 z-50 flex  p-3 text-sm text-white bg-orange-600 rounded-md">
+        <div role="alert" className=" absolute bottom-2 left-2 mb-4 z-50 flex  p-3 text-sm text-white bg-orange-600 rounded-md">
           {t("text_error")}
         </div>
       }

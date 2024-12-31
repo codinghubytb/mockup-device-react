@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 function LandingPage() {
 
     return (
-        <div className="back bg-blue-50">
+        <div className="back bg-blue-50 min-h-screen">
             <Navbar />
             <Hero />
             <Footer />
